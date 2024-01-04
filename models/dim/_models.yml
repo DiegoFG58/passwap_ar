@@ -1,0 +1,106 @@
+models:
+  - name: dim_passwap_ar_subscriptions_subs
+    access: private
+    group: ar
+  - name: dim_passwap_ar_subscriptions_unsubs
+    access: private
+    group: ar
+  - name: dim_passwap_ar_subscriptions
+    access: protected
+    group: ar
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: id
+        data_type: number
+      - name: subs_id
+        data_type: text
+      - name: subs_date
+        data_type: timestamp_ntz
+      - name: last_payment_date
+        data_type: timestamp_ntz
+      - name: next_payment_date
+        data_type: timestamp_ntz
+      - name: unsubs_date
+        data_type: timestamp_ntz
+      - name: status
+        data_type: text
+      - name: first_status
+        data_type: text
+      - name: keyword
+        data_type: text
+      - name: user_subno
+        data_type: text
+      - name: msisdn
+        data_type: text
+      - name: carrier
+        data_type: text
+      - name: first_status_result
+        data_type: text
+      - name: last_status_result
+        data_type: text
+      - name: carrier_id_susc
+        data_type: text
+      - name: product_id
+        data_type: text
+      - name: channel
+        data_type: text
+      - name: campaign
+        data_type: text
+      - name: provider
+        data_type: text
+      - name: autorenew
+        data_type: number
+      - name: method
+        data_type: text
+      - name: error_code
+        data_type: text
+      - name: error_description
+        data_type: text
+      - name: fail_code
+        data_type: text
+      - name: merchant_id
+        data_type: number
+      - name: submerchant_id
+        data_type: number
+      - name: session
+        data_type: text
+      - name: service_shortnum
+        data_type: text
+      - name: access_method
+        data_type: text
+      - name: deferred_cancel
+        data_type: number
+      - name: description
+        data_type: text
+      - name: metadata
+        data_type: text
+      - name: last_correct_payment_date
+        data_type: timestamp_ntz
+      - name: error_type
+        data_type: text
+      - name: ip_address
+        data_type: text
+      - name: source
+        data_type: text
+      - name: inventory
+        data_type: text
+      - name: affiliate
+        data_type: text
+      - name: device
+        data_type: text
+      - name: ga_cid
+        data_type: text
+      - name: business
+        data_type: text
+      - name: ads_id
+        data_type: text
+      - name: deferred_unsubs_date
+        data_type: timestamp_ntz
+      - name: price
+        data_type: number
+      - name: product
+        data_type: text
+      - name: platform_data
+        data_type: text

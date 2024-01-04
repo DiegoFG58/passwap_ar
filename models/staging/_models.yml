@@ -1,0 +1,7 @@
+models:
+  - name: stg_passwap_ar_subscriptions_unsubs
+    access: private
+    group: ar
+  - name: stg_passwap_ar_subscriptions_subs
+    access: private
+    group: ar
