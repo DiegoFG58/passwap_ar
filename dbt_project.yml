@@ -24,6 +24,11 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
+vars:
+  var_passwap_delta_value_init: "-2"
+  var_passwap_delta_value_end: "0"
+  var_passwap_delta_type: "day"
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 

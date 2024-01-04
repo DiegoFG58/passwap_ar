@@ -1,0 +1,10 @@
+version : 2
+
+sources:
+  - name: RAW_SMADEX
+    database: PROD_RAW_DATA_REPOSITORY
+    schema: SMADEX
+    tables:
+      - name: SMADEX_VIEW
+        description: "Required for smadex campaigns and clicks"
+        tags: ["ES","MX","navigation"]

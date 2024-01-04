@@ -1,0 +1,13 @@
+version : 2
+
+sources:
+  - name: RAW_PUBLIC
+    database: PROD_RAW_DATA_REPOSITORY
+    schema: PUBLIC
+    tables:
+      - name: SESSIONS_DV_CONTENT_V2
+        description: "Required for smadex campaigns and clicks"
+        tags: ["ES","MX","navigation"]
+      - name: REF_AD_ALL
+        description: " Contains the field ad_url. Source: dv_tracking.public.ref_ad_all"
+        tags: ["ES","MX","navigation"]

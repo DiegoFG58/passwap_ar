@@ -1,0 +1,159 @@
+version : 2
+
+sources:
+  - name: RAW_PASSWAP
+    database: PROD_RAW_DATA_REPOSITORY
+    schema: PASSWAP
+    tables:
+
+      # subs
+      - name: ES_SUBSCRIPTIONS_SUBS
+        description: "All details from subscriptions and recent unsubscriptions"
+        tags: ["ES","subs"]
+      - name: ES_SUBSCRIPTIONS_UNSUBS
+        description: "All details from historical unsubscriptions"
+        tags: ["ES","subs"]
+      - name: MX_SUBSCRIPTIONS_SUBS
+        description: "All details from subscriptions and recent unsubscriptions"
+        tags: ["MX","subs"]
+      - name: MX_SUBSCRIPTIONS_UNSUBS
+        description: "All details from historical unsubscriptions"
+        tags: ["MX","subs"]
+      - name: CL_SUBSCRIPTIONS_SUBS
+        description: "All details from subscriptions and recent unsubscriptions"
+        tags: ["CL","subs"]
+      - name: CL_SUBSCRIPTIONS_UNSUBS
+        description: "All details from historical unsubscriptions"
+        tags: ["CL","subs"]
+      - name: AR_SUBSCRIPTIONS_SUBS
+        description: "All details from subscriptions and recent unsubscriptions"
+        tags: ["AR","subs"]
+      - name: AR_SUBSCRIPTIONS_UNSUBS
+        description: "All details from historical unsubscriptions"
+        tags: ["AR","subs"]
+      - name: BR_SUBSCRIPTIONS_SUBS
+        description: "All details from subscriptions and recent unsubscriptions"
+        tags: ["BR","subs"]
+      - name: BR_SUBSCRIPTIONS_UNSUBS
+        description: "All details from historical unsubscriptions"
+        tags: ["BR","subs"]
+
+      # billing
+      - name: ES_BILLING
+        description: "All details from ES billing operations, including HIST and LIVE (last 150 days)"
+        tags: ["ES","billing"]
+      - name: MX_BILLING
+        description: "All details from MX billing operations, including HIST and LIVE (last 150 days)"
+        tags: ["MX","billing"]
+      - name: CL_BILLING
+        description: "All details from CL billing operations, including HIST and LIVE (last 150 days)"
+        tags: ["CL","billing"]
+      - name: SP_BILLING_REFUND
+        description: "Refunds"
+        tags: ["ES","billing"]
+      - name: AR_BILLING
+        description: "All details from AR billing operations, including HIST and LIVE (last 150 days)"
+        tags: ["AR","billing"]
+      - name: BR_BILLING
+        description: "All details from AR billing operations, including HIST and LIVE (last 150 days)"
+        tags: ["BR","billing"]
+
+      # Back office
+      - name: G_DATA_SERVICE_REF
+        description: "Back office information about the offer (keyword)"
+        tags: ["ES","MX","CL","AR","BR","subs"]
+      - name: G_DATA_INVENTORIES
+        description: "Mapping table to associate Snowplow navigation to the corresponding inventory thoruough the campaign name."
+        tags: ["ES","MX","CL","AR","BR","navigation"]        
+      - name: PRODUCTS_FRANCE
+        description: "Mapping table to correct product name."
+        tags: ["ES","MX","CL","AR","BR","navigation"]
+      - name: DVP4M_ATOM_SERVICES
+        description: "Necessary to distinguish between PASSWAP and DVP4M products."
+        tags: ["ES","MX","CL","AR","BR","navigation"]
+      - name: COLUMBUS_MP_SERVICIOS_CLIENTES
+        description: "Necessary to fill the dimension acquisition."
+        tags: ["ES","MX","CL","AR","BR","subs"]
+      - name: COLUMBUS_MP_SERVICIOS
+        description: "Necessary to fill the dimension service via."
+        tags: ["ES","MX","CL","AR","BR","subs"]
+      - name: COLUMBUS_MP_MERCHANTS
+        description: "Necessary to enrich billing information"
+        tags: ["ES","MX","CL","AR","BR","subs"]
+      - name: KEYWORD_NOT_MAPPED
+        description: "Necessary to assign a keyword to a product."  
+        tags: ["ES","MX","CL","AR","BR","updates"]
+      - name: LATAM_N_SERVICIOS
+        description: "[CASIOPEASQL].[Quest_Latam].[dbo].[N_servicios]" 
+        tags: ["MX","CL","BR","updates"]
+      - name: N_CLI_PROV
+        description: "Needed to assess the revenue. Source: thorsql02.quest_2011.dbo.N_CLI_PROV "
+        tags: ["BR","exec"]
+      - name: N_CLIENTES
+        description: "Needed to assess the revenue. Source: thorsql.quest_2001.dbo.N_CLIENTES "
+        tags: ["ES","updates"]
+      - name: N_CATEGORIAS
+        description: "Needed to assess the revenue. Source: thorsql02.quest_2011.dbo.N_CATEGORIAS"
+        tags: ["BR","exec"]
+      - name: N_EXECUTIVE_FILTROS
+        description: "Needed to update the im_mode in Brasil. Source: thorsql02.quest_2011.dbo.N_EXECUTIVE_FILTROS"
+        tags: ["BR","updates"]
+
+      # Navigation
+      - name: SERVICE_MAPPING 
+        description: "Related to the provider Google. Required for product and carrier. Source: FIVETRAN.GOOGLE_SHEETS.SERVICE_MAPPING_V2" 
+        tags: ["ES","MX","CL","AR","BR","navigation"]
+      - name: SERVICE_MAPPING_SMADEX 
+        description: "Related to the provider Smadex. Required for product and carrier. Source: FIVETRAN.GOOGLE_SHEETS.SERVICE_MAPPING_SMADEX"       
+        tags: ["ES","MX","CL","AR","BR","navigation"]
+      - name: GADS_CAMPAIGN
+        description: "Required for google campaigns. Source: PROD_CALCULATION_REPOSITORY.ANALYTICS_GOOGLE_ADS_DIM.DIM_GADS__CAMPAIGN"      
+        tags: ["ES","MX","CL","AR","BR","navigation"]
+      - name: ADGROUP_PERFORMANCE_REPORT
+        description: "Google Ads performance (needed to clicks asssessment). Source: PROD_CALCULATION_REPOSITORY.ANALYTICS_GOOGLE_ADS_FACT.FACT_GADS__ADGROUP_PERFORMANCE"
+        tags: ["ES","MX","CL","AR","BR","navigation"]
+      - name: STATS_SESSIONS_DV_CONTENT_V2
+        description: "Required for smadex campaigns and clicks"
+        tags: ["ES","MX","CL","AR","BR","navigation"]
+
+
+      # Investment
+      - name: XBI_CPC_FILES_AGRUPADA
+        description: "CPC table (XBI database in server PROMETEUSSQL) for investment assessment "
+        tags: ["ES","MX","CL","AR","BR","investment"]
+      - name: XBI_CPC_FILES_AGRUPADA_WIFI 
+        description: "CPC table (XBI database in server PROMETEUSSQL) for investment assessment "
+        tags: ["ES","MX","CL","AR","BR","investment"]
+      - name: JETDW_GDATA_SETTLEMENT_DIFFERENCE
+        description: "Detail about the percentage applied to GIB"
+        tags: ["ES","MX","CL","AR","BR","investment"]
+      - name: EXEC_ESTIMATED_ARPU
+        description: "estimated ARPU from EXEC database in MAGALLANESSQLN1"
+        tags: ["ES","MX","CL","AR","BR","investment"]
+      - name: MASTER_OPERADORES
+        description: "Required for the investment assessment in LATAM Source: PROMETEUSSQL.XBI.dbo.MASTER_OPERADORES"
+        tags: ["MX","CL","AR","BR","investment"]
+      - name: MASTER_KEYWORDS
+        description: "Required for the investment assessment in LATAM Source: PROMETEUSSQL.XBI.dbo.MASTER_KEYWORDS"
+        tags: ["MX","CL","AR","BR","investment"]
+      - name: MASTER_INVENTARIOS
+        description: "Required for the investment assessment in LATAM Source: PROMETEUSSQL.XBI.dbo.MASTER_INVENTARIOS"
+        tags: ["MX","CL","AR","BR","investment"]
+      - name: MASTER_REDES
+        description: "Required for the investment assessment in LATAM Source: PROMETEUSSQL.XBI.dbo.MASTER_REDES"
+        tags: ["MX","CL","AR","BR","investment"]
+      - name: X_MASTER_OPERADORES
+        description: "Required for the investment assessment in LATAM. Source: PROMETEUSSQL.XBI.dbo.X_MASTER_OPERADORES"
+        tags: ["MX","CL","AR","BR","investment"]
+      - name: BOI_DIVISAS
+        description: "Required for the investment assessment in LATAM. Source: thorsql.quest_2001.dbo.boi_divisas"
+        tags: ["MX","CL","AR","BR","investment"]
+
+      # DVP4M
+
+      - name: ES_BILLING_LIVE_DVP4M
+        description: "DVP4M payments"
+        tags: ["ES"]
+      - name: SP_BILLING_REFUND_DVP4M
+        description: "DVP4M refunds"
+        tags: ["ES"]
